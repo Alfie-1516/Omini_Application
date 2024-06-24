@@ -21,36 +21,36 @@ const App = ({ navigation }) => {
  return(
    
   <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
-    <View style={styles.container}>
-      <View style={styles.header}>
+    <View className="flex-1 p-6">
+      <View>
         <Image
           source={require("../assets/complete.png")}
-          style={styles.headerImg}
+          className="self-center mt-14 w-20 h-20"
           alt="Logo"
         />
-        <Text style={styles.title}>Omini App</Text>
-        <Text style={styles.subtitle}>
+        <Text className ="text-center text-3xl font-bold">Omni-App</Text>
+        <Text className="text-center text-l font-bold">
           Let's come together to share experiences
         </Text>
       </View>
-      <View style={styles.form}>
-        <View style={styles.input}>
+      <View className ="flex-1 mt-24">
+        <View className ="mb-8">
           {/* <Text style={styles.inputLabel}>Email Address</Text> */}
           <TextInput
           autoCapitalize="none"
           autoCorrect={false}
           keyboardType="email-address"
-            style={styles.inputControl}
+            className="h-14 bg-white px-5 rounded-md border-2 border-[#B2ACAC] text-base font-medium"
             value={form.email}
             placeholder="Username/Email"
             onChangeText={(email) => setForm({ ...form, email })}
           />
         </View>
-        <View style={styles.input}>
+        <View className ="mb-8">
           {/* <Text style={styles.inputLabel}>Password</Text> */}
           <TextInput
             secureTextEntry
-            style={styles.inputControl}
+            className="h-14 bg-white px-5 rounded-md border-2 border-[#B2ACAC] text-base font-medium"
             value={form.password}
             placeholder="Password"
             onChangeText={(password) => setForm({ ...form, password })}
@@ -63,17 +63,17 @@ const App = ({ navigation }) => {
           //handle on press
           
         }}>
-          <Text style={styles.formfooter}>Dont have an account? 
+          <Text className="text-center text-xl font-semibold">Dont have an account? 
             <Text style={{color:'#075eec'}}> Sign Up</Text>
           </Text>
         </TouchableOpacity>
-        <View style={styles.formAction}>
+        <View className="my-3 mb-24">
           <TouchableOpacity onPress={() => {
             //Handel on press action
             navigation.navigate('Dashboard');
           }}>
-            <View style={styles.btn}>
-              <Text style={styles.btnText}>Log in</Text>
+             <View className="bg-[#075eec] rounded-3xl items-center justify-center py-4 px-5">
+             <Text  className="text-xl font-semibold text-white">Log in</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -85,7 +85,7 @@ const App = ({ navigation }) => {
 
 export default App;
 const styles = StyleSheet.create({
-  container: {
+  /*container: {
     padding: 24,
     flex: 1,
   },
@@ -154,5 +154,5 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '600',
     color: '#fff'
-  }
+  }*/
 });

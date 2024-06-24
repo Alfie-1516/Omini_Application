@@ -17,46 +17,46 @@ import {
     });
     return (
       <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
-        <View style={styles.container}>
-          <View style={styles.header}>
+        <View className="flex-1 p-6">
+          <View>
             <Image
               source={require("../assets/complete.png")}
-              style={styles.headerImg}
+              className="self-center mt-14 w-20 h-20"
               alt="Logo"
             />
-            <Text style={styles.title}>Omini App</Text>
-            <Text style={styles.subtitle}>
+            <Text className ="text-center text-3xl font-bold">Omni-App</Text>
+            <Text className ="text-center text-l font-bold">
               Let's come together to share experiences
             </Text>
           </View>
-          <View style={styles.form}>
-            <View style={styles.input}>
+          <View className ="flex-1 mt-14">
+            <View className ="mb-8">
               {/* <Text style={styles.inputLabel}>Email Address</Text> */}
               <TextInput
               autoCapitalize="none"
               autoCorrect={false}
               keyboardType="email-address"
-                style={styles.inputControl}
+                className="h-14 bg-white px-5 rounded-md border-2 border-[#B2ACAC] text-base font-medium"
                 value={form.email}
                 placeholder="Username"
                 onChangeText={(email) => setForm({ ...form, email })}
               />
             </View>
-            <View style={styles.input}>
+            <View className ="mb-8">
               {/* <Text style={styles.inputLabel}>Password</Text> */}
               <TextInput
                 secureTextEntry
-                style={styles.inputControl}
+                className="h-14 bg-white px-5 rounded-md border-2 border-[#B2ACAC] text-base font-medium"
                 value={form.password}
                 placeholder="School Email"
                 onChangeText={(password) => setForm({ ...form, password })}
               />
             </View>
-            <View style={styles.input}>
+            <View className ="mb-8">
               {/* <Text style={styles.inputLabel}>Password</Text> */}
               <TextInput
                 secureTextEntry
-                style={styles.inputControl}
+                className="h-14 bg-white px-5 rounded-md border-2 border-[#B2ACAC] text-base font-medium"
                 value={form.password}
                 placeholder="Password"
                 onChangeText={(password) => setForm({ ...form, password })}
@@ -67,17 +67,17 @@ import {
             onPress={() => {
               //handle on press
             }}>
-              <Text style={styles.formfooter}>Already have an account? 
+              <Text className="text-center text-xl font-semibold">Already have an account? 
                 <Text style={{color:'#075eec'}}> Log in</Text>
               </Text>
             </TouchableOpacity>
-            <View style={styles.formAction}>
+            <View className="my-3 mb-14">
               <TouchableOpacity onPress={() => {
                 //Handel on press action
                 Alert.alert('Sucessfully logged in!')
               }}>
-                <View style={styles.btn}>
-                  <Text style={styles.btnText}>Sign In</Text>
+                <View className="bg-[#075eec] rounded-3xl items-center justify-center py-4 px-5">
+                  <Text  className="text-xl font-semibold text-white">Sign Up</Text>
                 </View>
               </TouchableOpacity>
             </View>
@@ -88,7 +88,7 @@ import {
   }
   
   const styles = StyleSheet.create({
-    container: {
+    /*container: {
       padding: 24,
       flex: 1,
     },
@@ -153,6 +153,6 @@ import {
       fontSize: 18,
       fontWeight: '600',
       color: '#fff'
-    }
+    }*/
   });
   
