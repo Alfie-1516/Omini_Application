@@ -22,6 +22,8 @@ const App = ({ navigation }) => {
    
   <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
     <View className="flex-1 p-6">
+
+      {/* THIS VIEW ID FOR THE MCNEESE LOGO AND THE TEXT BELOW */}
       <View>
         <Image
           source={require("../assets/complete.png")}
@@ -33,7 +35,9 @@ const App = ({ navigation }) => {
           Let's come together to share experiences
         </Text>
       </View>
+      {/* This view is for the input boxes */}
       <View className ="flex-1 mt-24">
+        
         <View className ="mb-8">
           {/* <Text style={styles.inputLabel}>Email Address</Text> */}
           <TextInput
@@ -56,7 +60,11 @@ const App = ({ navigation }) => {
             onChangeText={(password) => setForm({ ...form, password })}
           />
         </View>
-        <Text style={{textAlign: "right", color:"#075eec"}}>Forget Password?</Text>
+        
+      </View>
+      {/* This view is for the don't have an account and the login button */}
+      <View>
+      <Text style={{textAlign: "right", color:"#075eec"}}>Forget Password?</Text>
         
         <TouchableOpacity style={{marginTop: 'auto'}}
         onPress={() => {

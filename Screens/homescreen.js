@@ -1,115 +1,66 @@
 import {
-    SafeAreaView,
-    StyleSheet,
-    Text,
-    View,
-    TouchableOpacity,
-    Alert,
-    Image
-  } from "react-native";
-  import React from "react";
-  
-  
-  const App = ({ navigation }) => {
-    return (
-      <SafeAreaView style={{ flex: 1}}>
-        
-        <View className ="flex-1 justify-center items-center">
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Alert,
+  Image,
+  ImageBackground,
+} from "react-native";
+import React from "react";
+
+const App = ({ navigation }) => {
+  return (
+    <ImageBackground className="flex justify-end items-center h-screen w-full bg-white pb-5">
+      <View className="flex flex-col justify-between items-center h-4/6  w-9/12 ">
+        {/* logo view below */}
+        <View className="flex h-2/5 justify-center items-center">
         <Image
             source={require("../assets/McneeseLogo.png")}
-            className="self-center mt-21 w-21 h-21"
-            alt="Logo"
-          />
-          <Text className ="text-center text-5xl font-bold">Mcneese Easy Connect</Text>
+            resizeMode="contain"
+            className="w-screen h-60"
+          ></Image>
+          <Text className="text-center text-2xl sm:bg-black md:bg-white text-[#002b84] font-normal md:w-1/5">
+            Welcome to McNeese Easy Connect
+          </Text>
         </View>
-        <View>
-          <View className="items-center">
-            <TouchableOpacity 
+        {/* buttons view section */}
+        <View className="h-1/5 w-full justify-between">
+          <View className="items-center mb-2  bg-[#002b84] rounded-3xl ">
+            <TouchableOpacity
               onPress={() => {
-                navigation.navigate('signup');
+                navigation.navigate("signup");
               }}
+              className = "w-full justify-center items-center"
             >
-              <View className="bg-[#075eec] rounded-[29px] w-[340px] border items-center justify-center mb-7 py-1 px-5">
-                <Text className="text-2xl font-semibold text-white">Get Started</Text>
+              <View className="h-12 justify-center">
+                <Text className="text-xl font-normal text-white ">
+                  Sign in
+                </Text>
               </View>
             </TouchableOpacity>
           </View>
-          <View className="items-center">
+          <View className="items-center bg-[#002b84] rounded-3xl">
             <TouchableOpacity
               onPress={() => {
                 //Handel on press action
-                navigation.navigate('Login');
+                navigation.navigate("Login");
               }}
+              className = "w-full justify-center items-center"
             >
-              <View className="bg-[#075eec] rounded-[29px] w-[340px] border items-center justify-center mb-8 py-1 px-5">
-                <Text className="text-2xl font-semibold text-white">I already have an account </Text>
+              <View className="h-12 justify-center">
+                <Text className="text-xl font-normal text-white ">
+                  Login
+                </Text>
               </View>
             </TouchableOpacity>
           </View>
-          <View className="mb-4">
-            <Text className="text-center font-medium">
-              Your privacy is our concern and we want you to know how we process
-              your personal information. By continuing you confirm that you've
-              read and accepted our {''}
-            <Text className="underline underline-offset-4 text-center">
-              Terms and Privacy Policy
-            </Text>
-            </Text>
-          </View>
         </View>
-      </SafeAreaView>
-    );
-  };
-  
-  export default App;
-  
-  //const styles = StyleSheet.create({
-    /*container: {
-      justifyContent: "center",
-      alignItems: "center",
-      flex: 1,
-    },
-    headerImg:{
-      alignSelf: "center",
-      marginTop: 30,
-      width: 120,
-      height: 120,
-    },
-    intro: {
-      fontSize: 40,
-      fontWeight: "700",
-      textAlign: "center",
-    },
-    btn: {
-      backgroundColor: "#075eec",
-      borderRadius: 29,
-      width: 350,
-      borderWidth: 1,
-      alignItems: "center",
-      justifyContent: "center",
-      marginBottom: 10,
-      paddingVertical: 10,
-      paddingHorizontal: 20,
-    },
-    btnText: {
-      fontSize: 18,
-      fontWeight: "600",
-      color: "#fff",
-    },
-    terms: {
-      textAlign: "center",
-      justifyContent: "center",
-      marginTop: 10,
-      marginBottom: 30,
-      fontSize: 12,
-      width: 320,
-      lineHeight: 15,
-    },
-    btn_container: {
-      alignItems: "center",
-    },
-    terms_container: {
-      alignItems: "center",
-    },*/
-  //});
-  
+      </View>
+    </ImageBackground>
+  );
+};
+
+export default App;
+

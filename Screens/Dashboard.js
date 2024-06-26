@@ -14,7 +14,7 @@ const Tab = createBottomTabNavigator();
 export default function MyTabs() {
   return (
       <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Home" component={HomeScreen} options={{headerShown:false}}/>
       <Tab.Screen name="Calender" component={CalenderScreen} />
       <Tab.Screen name="Chat" component={ChatScreen} />
       <Tab.Screen name="Activities" component={ActivitiesScreen} />
