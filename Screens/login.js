@@ -7,87 +7,89 @@ import {
   TextInput,
   TouchableOpacity,
   Alert,
-
 } from "react-native";
 import React, { useState } from "react";
-import {Link} from "expo-router"
+import { Link } from "expo-router";
 
 const App = ({ navigation }) => {
   const [form, setForm] = useState({
     email: "",
     password: "",
-    
   });
- return(
-   
-  <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
-    <View className="flex-1 p-6">
-
-      {/* THIS VIEW ID FOR THE MCNEESE LOGO AND THE TEXT BELOW */}
-      <View>
-        <Image
-          source={require("../assets/complete.png")}
-          className="self-center mt-14 w-20 h-20"
-          alt="Logo"
-        />
-        <Text className ="text-center text-3xl font-bold">Omni-App</Text>
-        <Text className="text-center text-l font-bold">
-          Let's come together to share experiences
-        </Text>
-      </View>
-      {/* This view is for the input boxes */}
-      <View className ="flex-1 mt-24">
-        
-        <View className ="mb-8">
-          {/* <Text style={styles.inputLabel}>Email Address</Text> */}
-          <TextInput
-          autoCapitalize="none"
-          autoCorrect={false}
-          keyboardType="email-address"
-            className="h-14 bg-white px-5 rounded-md border-2 border-[#B2ACAC] text-base font-medium"
-            value={form.email}
-            placeholder="Username/Email"
-            onChangeText={(email) => setForm({ ...form, email })}
+  return (
+    <SafeAreaView className="justify-center items-center h-screen " >
+      <View className="flex flex-col w-4/5 h-full justify-between">
+        {/* THIS VIEW ID FOR THE MCNEESE LOGO AND THE TEXT BELOW */}
+        <View className="basis-1/3">
+          <Image
+            source={require("../assets/complete.png")}
+            className="self-center mt-14 w-20 h-20"
+            alt="Logo"
           />
-        </View>
-        <View className ="mb-8">
-          {/* <Text style={styles.inputLabel}>Password</Text> */}
-          <TextInput
-            secureTextEntry
-            className="h-14 bg-white px-5 rounded-md border-2 border-[#B2ACAC] text-base font-medium"
-            value={form.password}
-            placeholder="Password"
-            onChangeText={(password) => setForm({ ...form, password })}
-          />
-        </View>
-        
-      </View>
-      {/* This view is for the don't have an account and the login button */}
-      <View>
-      <Text style={{textAlign: "right", color:"#075eec"}}>Forget Password?</Text>
-        
-        <TouchableOpacity style={{marginTop: 'auto'}}
-        onPress={() => {
-          //handle on press
-          
-        }}>
-          <Text className="text-center text-xl font-semibold">Dont have an account? 
-            <Text style={{color:'#075eec'}}> Sign Up</Text>
+          <Text className="text-center text-3xl font-bold">Omni-App</Text>
+          <Text className="text-center text-l font-bold">
+            Let's come together to share experiences
           </Text>
-        </TouchableOpacity>
-        <View className="my-3 mb-24">
-          <TouchableOpacity onPress={() => {
-            //Handel on press action
-            navigation.navigate('Dashboard');
-          }}>
-             <View className="bg-[#075eec] rounded-3xl items-center justify-center py-4 px-5">
-             <Text  className="text-xl font-semibold text-white">Log in</Text>
-            </View>
+        </View>
+        {/* This view is for the input boxes */}
+        <View className="basis-1/3 justify-end">
+          <View className="mb-8">
+            {/* <Text style={styles.inputLabel}>Email Address</Text> */}
+            <TextInput
+              autoCapitalize="none"
+              autoCorrect={false}
+              keyboardType="email-address"
+              className="h-14 bg-white px-5 rounded-md border-2 border-[#B2ACAC] text-base font-medium"
+              value={form.email}
+              placeholder="Username/Email"
+              onChangeText={(email) => setForm({ ...form, email })}
+            />
+          </View>
+          <View className="mb-8">
+            {/* <Text style={styles.inputLabel}>Password</Text> */}
+            <TextInput
+              secureTextEntry
+              className="h-14 bg-white px-5 rounded-md border-2 border-[#B2ACAC] text-base font-medium"
+              value={form.password}
+              placeholder="Password"
+              onChangeText={(password) => setForm({ ...form, password })}
+            />
+          </View>
+          <Text style={{ textAlign: "right", color: "#075eec" }}>
+            Forget Password?
+          </Text>
+        </View>
+        {/* This view is for the don't have an account and the login button */}
+        <View className="basis-1/3 justify-end">
+          <View>
+          <TouchableOpacity
+            style={{ marginTop: "auto" }}
+            onPress={() => {
+              //handle on press
+            }}
+          >
+            <Text className="text-center text-l font-normal">
+              Dont have an account?
+              <Text style={{ color: "#075eec" }}> Sign Up</Text>
+            </Text>
           </TouchableOpacity>
+          </View>
+          
+          <View className="my-3 mb-24">
+            <TouchableOpacity
+              onPress={() => {
+                //Handel on press action
+                navigation.navigate("Dashboard");
+              }}
+            >
+              <View className="bg-[#075eec] rounded-3xl items-center justify-center py-4 px-5">
+                <Text className="text-xl font-semibold text-white">Log in</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
-    </View>
-  </SafeAreaView>
+    </SafeAreaView>
   );
 };
 
