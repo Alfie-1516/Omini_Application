@@ -14,7 +14,7 @@ const App = () => {
   return (
     <SafeAreaView className="bg-black">
       <View className="flex flex-col h-screen">
-        {/* This is the top nav bar */}
+        {/* This is the top nav ba */}
         <View className=" basis-1/12 flex  w-screen  items-center border-solid border-b-2 bg-white border-gray-400 pb-5">
           <View className=" flex flex-row w-11/12 justify-between">
             <View className="basis-2/6 items-start justify-center ">
