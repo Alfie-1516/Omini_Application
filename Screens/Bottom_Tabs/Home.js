@@ -46,14 +46,14 @@ const Home = () => {
             {/* Today's Tasks */}
             <View className="flex  basis-1/4 rounded-xl  justify-between items-center border-solid border border-[#989898] overflow-hidden mb-5">
               {/* The code below is for the Todays task header */}
-              <View className="basis-1/6 w-full justify-center items-center bg-[#075eec] ">
+              <View className="basis-1/5 w-full justify-center items-center bg-[#075eec] ">
                 <View className="w-11/12 justify-center ">
                   <Text className="text-white">Today's Task</Text>
                 </View>
               </View>
-              {/* Tasks view below shows the 3 task in todays tasks */}
-              <View className=" flex basis-1/4 w-11/12 justify-center">
-                <View className="basis-fit flex flex-row  mt-3">
+              {/* Tasks view below shows the 2 task in todays tasks */}
+              <View className="  flex basis-3/5  w-11/12 justify-between pt-3 ">
+                <View className="basis-1/2  flex flex-row">
                   <View className="justify-start mr-3">
                     <AntDesign name="checksquareo" size={20} color="black" />
                   </View>
@@ -65,7 +65,7 @@ const Home = () => {
                     </View>
                   </View>
                 </View>
-                <View className="basis-fit flex flex-row  mt-3">
+                <View className="basis-1/2  flex flex-row">
                   <View className="justify-start mr-3">
                     <AntDesign name="checksquareo" size={20} color="black" />
                   </View>
@@ -79,7 +79,7 @@ const Home = () => {
                 </View>
               </View>
               {/* This code below is for the View more button */}
-              <View className="basis-1/6 w-full justify-center items-center border-solid border-[#989898] border-t rounded-t-l ">
+              <View className="basis-1/5 w-full justify-center items-center border-solid border-[#989898] border-t rounded-t-l ">
                 <View className="w-11/12 justify-between flex flex-row ">
                   <Text className="text-black">View More</Text>
                   <AntDesign name="right" size={15} color="black" />
@@ -89,14 +89,14 @@ const Home = () => {
             {/* Live Events on Campus */}
             <View className="flex  basis-1/4 rounded-xl  justify-between items-center border-solid border border-[#989898] overflow-hidden mb-5">
               {/* The code below is for the Todays task header */}
-              <View className="basis-1/6 w-full justify-center items-center bg-[#075eec] ">
+              <View className="basis-1/5 w-full justify-center items-center bg-[#075eec] ">
                 <View className="w-11/12 justify-center ">
                   <Text className="text-white">Today's Task</Text>
                 </View>
               </View>
-              {/* Tasks view below shows the 3 task in todays tasks */}
-              <View className=" flex basis-1/4 w-11/12 justify-center">
-                <View className="basis-fit flex flex-row  mt-3">
+              {/* Tasks view below shows the 2 task in todays tasks */}
+              <View className="  flex basis-3/5  w-11/12 justify-between pt-3 ">
+                <View className="basis-1/2  flex flex-row">
                   <View className="justify-start mr-3">
                     <AntDesign name="checksquareo" size={20} color="black" />
                   </View>
@@ -108,7 +108,7 @@ const Home = () => {
                     </View>
                   </View>
                 </View>
-                <View className="basis-fit flex flex-row  mt-3">
+                <View className="basis-1/2  flex flex-row">
                   <View className="justify-start mr-3">
                     <AntDesign name="checksquareo" size={20} color="black" />
                   </View>
@@ -122,7 +122,7 @@ const Home = () => {
                 </View>
               </View>
               {/* This code below is for the View more button */}
-              <View className="basis-1/6 w-full justify-center items-center border-solid border-[#989898] border-t rounded-t-l ">
+              <View className="basis-1/5 w-full justify-center items-center border-solid border-[#989898] border-t rounded-t-l ">
                 <View className="w-11/12 justify-between flex flex-row ">
                   <Text className="text-black">View More</Text>
                   <AntDesign name="right" size={15} color="black" />
