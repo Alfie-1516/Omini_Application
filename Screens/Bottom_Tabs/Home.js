@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <SafeAreaView className="flex flex-col  justify-start  h-screen  items-center bg-black">
       {/* This is the top nav bar  */}
-      <View className=" basis-1/12 flex  w-screen  items-center border-solid border-b-2 bg-white border-gray-400 pb-5">
+      <View className=" basis-1/12 flex  w-screen  items-center border-solid border-b bg-white border-gray-400 pb-5">
         <View className=" flex flex-row w-11/12 justify-between">
           <View className="basis-2/6 items-start justify-center ">
             <AntDesign name="book" size={24} color="black" />
@@ -44,7 +44,7 @@ const Home = () => {
             </View>
             {/* Todays task and Live events on campus */}
             {/* Today's Tasks */}
-            <View className="flex  basis-2/6 rounded-xl  justify-between items-center border-solid border-2 overflow-hidden mb-5">
+            <View className="flex  basis-2/6 rounded-xl  justify-between items-center border-solid border overflow-hidden mb-5">
               {/* The code below is for the Todays task header */}
               <View className="basis-1/6 w-full justify-center items-center bg-[#075eec] ">
                 <View className="w-11/12 justify-center ">
@@ -91,7 +91,7 @@ const Home = () => {
                 </View>
               </View>
               {/* This code below is for the View more button */}
-              <View className="basis-1/6 w-full justify-center items-center border-solid border-t-2 rounded-t-l ">
+              <View className="basis-1/6 w-full justify-center items-center border-solid border-t rounded-t-l ">
                 <View className="w-11/12 justify-between flex flex-row ">
                   <Text className="text-black">View More</Text>
                   <AntDesign name="right" size={15} color="black" />
@@ -99,7 +99,7 @@ const Home = () => {
               </View>
             </View>
             {/* Live Events on Campus */}
-            <View className="flex  basis-2/6 rounded-xl  justify-between items-center border-solid border-2 overflow-hidden mb-5">
+            <View className="flex  basis-2/6 rounded-xl  justify-between items-center border-solid border overflow-hidden mb-5">
               {/* The code below is for the Todays task header */}
               <View className="basis-1/6 w-full justify-center items-center bg-[#075eec] ">
                 <View className="w-11/12 justify-center ">
@@ -146,7 +146,7 @@ const Home = () => {
                 </View>
               </View>
               {/* This code below is for the View more button */}
-              <View className="basis-1/6 w-full justify-center items-center border-solid border-t-2 rounded-t-l ">
+              <View className="basis-1/6 w-full justify-center items-center border-solid border-t rounded-t-l ">
                 <View className="w-11/12 justify-between flex flex-row ">
                   <Text className="text-black">View More</Text>
                   <AntDesign name="right" size={15} color="black" />
