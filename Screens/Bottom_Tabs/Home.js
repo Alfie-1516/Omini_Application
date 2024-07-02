@@ -3,9 +3,16 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { StyleSheet, Text, Image, View, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  Image,
+  View,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
     <SafeAreaView className="flex flex-col  justify-start  h-screen  items-center bg-black">
       {/* This is the top nav bar  */}
@@ -23,7 +30,14 @@ const Home = () => {
             />
           </View>
           <View className="basis-2/6 justify-center items-end">
-            <FontAwesome name="user-circle" size={24} color="black" />
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate("profile");
+              }}
+            >
+              <FontAwesome name="user-circle" size={24} color="black" />
+            </TouchableOpacity>
+            
           </View>
         </View>
       </View>
