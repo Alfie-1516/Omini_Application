@@ -16,8 +16,8 @@ export default function MyTabs() {
       <Tab.Navigator>
       <Tab.Screen name="Home" component={HomeScreen} options={{headerShown:false}}/>
       <Tab.Screen name="Calender" component={CalenderScreen} options={{headerShown:false}} />
-      <Tab.Screen name="Chat" component={ChatScreen} />
-      <Tab.Screen name="Activities" component={ActivitiesScreen} />
+      <Tab.Screen name="Chat" component={ChatScreen}  options={{headerShown:false}}/>
+      <Tab.Screen name="Activities" component={ActivitiesScreen} options={{headerShown:false}} />
       <Tab.Screen name="Wellness" component={WellnessScreen} />
     </Tab.Navigator>
     
