@@ -15,7 +15,7 @@ const App = () => {
     <SafeAreaView className="bg-black">
       <View className="flex flex-col h-screen">
         {/* This is the top nav bar */}
-        <View className=" basis-1/12 flex  w-screen  items-center border-solid border-b-2 bg-white border-gray-400 pb-5">
+        <View className=" basis-1/12 flex  w-screen  items-center border-solid border-b bg-white border-gray-400 pb-5">
           <View className=" flex flex-row w-11/12 justify-between">
             <View className="basis-2/6 items-start justify-center ">
               <AntDesign name="book" size={24} color="black" />
@@ -52,7 +52,7 @@ const App = () => {
             }}
           />
           <View className="basis-1/2 bg-white justify-center items-center h-96">
-            <View className="border-solid border-2 w-11/12 h-4/5 border-gray-500 rounded-2xl flex overflow-hidden justify-start items-center mb-20 mt-10">
+            <View className="border-solid border w-11/12 h-4/5 border-gray-500 rounded-2xl flex overflow-hidden justify-start items-center mb-20 mt-10">
               <View className="basis-1/6 bg-[#075eec] w-full flex flex-row justify-center items-center">
                 <View className=" flex flex-row justify-between items-center w-11/12">
                   <Text className="text-white">Activites</Text>
@@ -61,7 +61,7 @@ const App = () => {
               </View>
               {/* Daily tasks/ activites */}
               <ScrollView className="">
-                <View className="flex  h-fit w-11/12 border-solid border-b-2 border-gray-500">
+                <View className="flex  h-fit w-11/12 border-solid border-b border-gray-500">
                   <View className="h-24 flex flex-row items-center">
                     <View className="h-16">
                       <Feather name="circle" size={20} color="black" />
@@ -86,7 +86,7 @@ const App = () => {
                     </View>
                   </View>
                 </View>
-                <View className="flex  h-fit w-11/12 border-solid border-b-2 border-gray-500">
+                <View className="flex  h-fit w-11/12 border-solid border-b border-gray-500">
                   <View className="h-24 flex flex-row items-center">
                     <View className="h-16">
                       <Feather name="circle" size={20} color="black" />
@@ -111,7 +111,7 @@ const App = () => {
                     </View>
                   </View>
                 </View>
-                <View className="flex  h-fit w-11/12 border-solid border-b-2 border-gray-500">
+                <View className="flex  h-fit w-11/12 border-solid border-b border-gray-500">
                   <View className="h-24 flex flex-row items-center">
                     <View className="h-16">
                       <Feather name="circle" size={20} color="black" />
