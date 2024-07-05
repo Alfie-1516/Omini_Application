@@ -34,13 +34,113 @@ const Chat = () => {
           </View>
       </View>
       <View className="flex justify-center items-center">
-        <View className="flex flex-row bg-slate-300 rounded-lg items-center justify-between py-1 px-4 w-11/12 self-center">
-          <Text className="text-slate-500 text-base font-medium font-['Inter'] flex-1">
+        <View className="flex flex-row bg-slate-300 rounded-lg items-center justify-between py-1 px-4 w-11/12 self-center mb-6">
+        <Text className="text-slate-500 text-base font-medium font-['Inter'] flex-1">
               Search and Explore
           </Text>
         <FontAwesome name="map-pin" size={20} color="blue"/>
         </View>
       </View>
+      <View className="flex mb-2">
+      <View className="flex flex-row w-11/12">
+        <View className="flex justify-center pb-3 ml-2 mr-2">
+          <Image
+            source={require("../../assets/Ellipse 13.jpg")}
+            className="w-13 h-13"
+            resizeMode="contain"
+            alt="Logo"
+          />
+        </View>
+        <View className=" flex bg-white justify-between w-11/12 self-center border-b-2 border-slate-200 ">
+          <View className="justify-between flex flex-row">
+            <Text className="text-neutral-800 text-base font-bold font-['Inter']">CSCI 321 - 7XA</Text>
+            <Text className="text-zinc-800 font-bold font-['Inter']">Jun 5</Text>
+          </View>
+          <View className="justify-between flex flex-row mb-2">
+            <Text className="w-[245px] h-[21px] text-stone-600 text-base font-medium font-['Inter']">Courtney Moree: I’m interested</Text>
+            <View className=  "w-[15px] h-[15px] bg-blue-700 rounded-full mt-1">
+              <Text className="text-center text-white text-[10px] font-medium font-['Inter']">2</Text>
+          </View>
+          </View>
+        </View>
+      </View>
+    </View>
+
+    <View className="flex mb-2">
+      <View className="flex flex-row w-11/12">
+        <View className="flex justify-center pb-3 ml-2 mr-2">
+          <Image
+            source={require("../../assets/Ellipse 13.jpg")}
+            className="w-13 h-13"
+            resizeMode="contain"
+            alt="Logo"
+          />
+        </View>
+        <View className=" flex bg-white justify-between w-11/12 self-center border-b-2 border-slate-200 ">
+          <View className="justify-between flex flex-row">
+            <Text className="text-neutral-800 text-base font-bold font-['Inter']">CSCI 321 - 7XA</Text>
+            <Text className="text-zinc-800 font-bold font-['Inter']">Jun 5</Text>
+          </View>
+          <View className="justify-between flex flex-row mb-2">
+            <Text className="w-[245px] h-[21px] text-stone-600 text-base font-medium font-['Inter']">Courtney Moree: I’m interested</Text>
+            <View className=  "w-[15px] h-[15px] bg-blue-700 rounded-full mt-1">
+              <Text className="text-center text-white text-[10px] font-medium font-['Inter']">2</Text>
+          </View>
+          </View>
+        </View>
+      </View>
+    </View>
+
+    <View className="flex mb-2">
+      <View className="flex flex-row w-11/12">
+        <View className="flex justify-center pb-3 ml-2 mr-2">
+          <Image
+            source={require("../../assets/Ellipse 13.jpg")}
+            className="w-13 h-13"
+            resizeMode="contain"
+            alt="Logo"
+          />
+        </View>
+        <View className=" flex bg-white justify-between w-11/12 self-center border-b-2 border-slate-200 ">
+          <View className="justify-between flex flex-row">
+            <Text className="text-neutral-800 text-base font-bold font-['Inter']">CSCI 321 - 7XA</Text>
+            <Text className="text-zinc-800 font-bold font-['Inter']">Jun 5</Text>
+          </View>
+          <View className="justify-between flex flex-row mb-2">
+            <Text className="w-[245px] h-[21px] text-stone-600 text-base font-medium font-['Inter']">Courtney Moree: I’m interested</Text>
+            <View className=  "w-[15px] h-[15px] bg-blue-700 rounded-full mt-1">
+              <Text className="text-center text-white text-[10px] font-medium font-['Inter']">2</Text>
+          </View>
+          </View>
+        </View>
+      </View>
+    </View>
+
+    <View className="flex mb-2">
+      <View className="flex flex-row w-11/12">
+        <View className="flex justify-center pb-3 ml-2 mr-2">
+          <Image
+            source={require("../../assets/Ellipse 13.jpg")}
+            className="w-13 h-13"
+            resizeMode="contain"
+            alt="Logo"
+          />
+        </View>
+        <View className=" flex bg-white justify-between w-11/12 self-center border-b-2 border-slate-200 ">
+          <View className="justify-between flex flex-row">
+            <Text className="text-neutral-800 text-base font-bold font-['Inter']">CSCI 321 - 7XA</Text>
+            <Text className="text-zinc-800 font-bold font-['Inter']">Jun 5</Text>
+          </View>
+          <View className="justify-between flex flex-row mb-2">
+            <Text className="w-[245px] h-[21px] text-stone-600 text-base font-medium font-['Inter']">Courtney Moree: I’m interested</Text>
+            <View className=  "w-[15px] h-[15px] bg-blue-700 rounded-full mt-1">
+              <Text className="text-center text-white text-[10px] font-medium font-['Inter']">2</Text>
+          </View>
+          </View>
+        </View>
+      </View>
+    </View>
+
 
       </ScrollView>
       </SafeAreaView>
