@@ -16,31 +16,24 @@ const Home = ({ navigation }) => {
   return (
     <SafeAreaView className="flex flex-col  justify-start  h-screen  items-center bg-black">
       {/* This is the top nav bar  */}
-      <View className=" basis-14 flex  w-screen  items-center border-solid border-b bg-white border-[#989898] ">
-        <View className=" flex flex-row w-11/12 justify-between">
-          <View className="basis-2/6 items-start justify-center ">
-            <AntDesign name="book" size={24} color="black" />
-          </View>
-          <View className="basis-2/6 flex justify-center items-center pb-3">
-            <Image
-              source={require("../../assets/complete.png")}
-              className="self-center  w-16 h-16 "
-              resizeMode="contain"
-              alt="Logo"
-            />
-          </View>
-          <View className="basis-2/6 justify-center items-end">
-            <TouchableOpacity
-              onPress={() => {
-                navigation.navigate("profile");
-              }}
-            >
+      <View className=" h-12 flex  w-screen  items-center border-solid border-b bg-white border-gray-400 pb-5">
+          <View className=" flex flex-row w-11/12 justify-between">
+            <View className="basis-2/6 items-start justify-center ">
+              <AntDesign name="book" size={24} color="black" />
+            </View>
+            <View className="basis-2/6 flex justify-center items-center pb-3">
+              <Image
+                source={require("../../assets/complete.png")}
+                className="self-center  w-16 h-16 "
+                resizeMode="contain"
+                alt="Logo"
+              />
+            </View>
+            <View className="basis-2/6 justify-center items-end">
               <FontAwesome name="user-circle" size={24} color="black" />
-            </TouchableOpacity>
-            
+            </View>
           </View>
         </View>
-      </View>
       <ScrollView className="flex basis-4/5 bg-white ">
         {/* This is the welcome Text and date */}
         <View className="basis-1/4 w-screen flex justify-center items-center ">

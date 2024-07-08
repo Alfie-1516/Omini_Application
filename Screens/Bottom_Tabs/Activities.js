@@ -1,4 +1,11 @@
-import { StyleSheet, Text, Image, View, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  Image,
+  View,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AntDesign from "@expo/vector-icons/AntDesign";
@@ -7,9 +14,9 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 
 const Activites = () => {
   return (
-    <SafeAreaView className="flex h-screen bg-white">
+    <SafeAreaView className="flex h-screen bg-black">
       {/* This is the top nav bar  */}
-      <View className=" basis-1/12 flex  w-screen  items-center border-solid border-b bg-white border-[#989898]">
+      <View className=" h-12 flex  w-screen  items-center border-solid border-b bg-white border-gray-400 pb-5">
         <View className=" flex flex-row w-11/12 justify-between">
           <View className="basis-2/6 items-start justify-center ">
             <AntDesign name="book" size={24} color="black" />
@@ -27,12 +34,19 @@ const Activites = () => {
           </View>
         </View>
       </View>
-      <ScrollView className="flex  h-screen ">
+      <ScrollView className="flex bg-white h-screen ">
         {/* Events */}
-        <View className=" h-fit flex justify-center items-center ">
-          <View className="flex flex-row w-11/12 justify-between items-center mt-3 mb-4">
+        <View className="flex h-16 justify-center items-center ">
+          <View className="flex flex-row w-11/12  justify-between items-center mt-3 mb-4">
             <Text className="text-3xl">Events</Text>
-            <AntDesign name="ellipsis1" size={24} color="black" />
+            <TouchableOpacity
+              className="bg-[#075eec] h-5/6 w-1/4 flex items-center justify-center rounded-2xl"
+              onPress={() => {
+                navigation.navigate("Home");
+              }}
+            >
+              <Text className="text-white">Add Event</Text>
+            </TouchableOpacity>
           </View>
         </View>
         {/* class for today*/}
@@ -138,8 +152,6 @@ const Activites = () => {
             </View>
           </View>
         </View>
-        
-        
       </ScrollView>
     </SafeAreaView>
   );
