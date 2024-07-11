@@ -5,14 +5,16 @@ import {
   View,
   TouchableOpacity,
   ScrollView,
+  Modal,
 } from "react-native";
-import React from "react";
+import React, { useState } from 'react';
 import { SafeAreaView } from "react-native-safe-area-context";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
 const Activites = () => {
+  const [modalVisible, setModalVisible] = useState(false);
   return (
     <SafeAreaView className="flex h-screen bg-black">
       {/* This is the top nav bar  */}
@@ -42,7 +44,7 @@ const Activites = () => {
             <TouchableOpacity
               className="bg-[#075eec] h-5/6 w-1/4 flex items-center justify-center rounded-2xl"
               onPress={() => {
-                navigation.navigate("Home");
+                setModalVisible(true)
               }}
             >
               <Text className="text-white">Add Event</Text>
@@ -152,6 +154,20 @@ const Activites = () => {
             </View>
           </View>
         </View>
+        <Modal transparent={true} visible={modalVisible} className="h-screen w-screen">
+          <View className=" h-full w-full  flex justify-center items-center">
+            <View className="w-3/4 h-3/4 bg-slate-400">
+              <TouchableOpacity
+                className="bg-[#075eec] h-5/6 w-1/4 flex items-center justify-center rounded-2xl"
+                onPress={() => {
+                  setModalVisible(false)
+                }}
+              >
+                <Text className="text-white">Add Event</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
       </ScrollView>
     </SafeAreaView>
   );
