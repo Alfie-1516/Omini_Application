@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
+import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from "react-native";
 import React from "react";
 import { Calendar } from "react-native-calendars";
 import AntDesign from "@expo/vector-icons/AntDesign";
@@ -10,7 +10,7 @@ import { SimpleLineIcons } from "@expo/vector-icons";
 // border-[#D7C6C6]
 // bg-[#075eec]
 
-const App = () => {
+const App = ({ navigation }) => {
   return (
     <SafeAreaView className="bg-black">
       <View className="flex flex-col h-screen">
@@ -52,7 +52,7 @@ const App = () => {
             }}
           />
           <View className="basis-1/2 bg-white justify-center items-center h-96">
-            <View className="border-solid border w-11/12 h-4/5 border-gray-500 rounded-2xl flex overflow-hidden justify-start items-center mb-20 mt-10">
+            <View className="border-solid border w-11/12 h-4/5 border-gray-500 rounded-2xl flex overflow-hidden justify-start items-center">
               <View className="basis-1/6 bg-[#075eec] w-full flex flex-row justify-center items-center">
                 <View className=" flex flex-row justify-between items-center w-11/12">
                   <Text className="text-white">Activites</Text>
@@ -137,8 +137,22 @@ const App = () => {
                   </View>
                 </View>
               </ScrollView>
+              
             </View>
+            
           </View>
+          <View className="basis-1/2 bg-white justify-center items-center">
+          <TouchableOpacity
+              onPress={() => {
+                //Handel on press action
+                navigation.navigate("planner");
+              }}
+            >
+            <View className = "w-12 h-12 bg-blue-700 rounded-full justify-center items-center">
+                <Text className="text-center text-white text-4xl font-medium">+</Text>
+            </View>
+            </TouchableOpacity>
+        </View>
         </ScrollView>
       </View>
     </SafeAreaView>
