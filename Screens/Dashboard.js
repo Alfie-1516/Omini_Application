@@ -10,6 +10,7 @@ import Profile from './Bottom_Tabs/Profile';
 
 
 
+
 const Tab = createBottomTabNavigator();
 
 export default function MyTabs() {

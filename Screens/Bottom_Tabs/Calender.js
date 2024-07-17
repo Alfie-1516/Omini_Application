@@ -145,7 +145,7 @@ const App = ({ navigation }) => {
           <TouchableOpacity
               onPress={() => {
                 //Handel on press action
-                navigation.navigate("planner");
+                navigation.navigate("chat");
               }}
             >
             <View className = "w-12 h-12 bg-blue-700 rounded-full justify-center items-center">
