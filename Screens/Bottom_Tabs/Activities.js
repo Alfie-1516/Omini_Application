@@ -8,14 +8,23 @@ import {
   ScrollView,
   Modal,
   Pressable,
+  KeyboardAvoidingView,
 } from "react-native";
+
 import React, { useState } from "react";
 import { Dropdown } from "react-native-element-dropdown";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { SimpleLineIcons } from "@expo/vector-icons";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 const Activites = () => {
+  const [events, set_events] = useState([]);
+  const add_new_event = () => {
+    const newView = "";
+    set_events([...events, newView]);
+  };
   const [modalVisible, setModalVisible] = useState(false);
   const months = [
     { label: "Jan", value: "1" },
@@ -106,6 +115,10 @@ const Activites = () => {
     { label: "AM", value: "AM" },
     { label: "PM", value: "PM" },
   ];
+  const [title, set_title] = useState(null);
+  const [description, set_description] = useState(null);
+  const [host, set_host] = useState(null);
+  const [giveaway, set_giveaway] = useState(null);
   const [day_value, setDay] = useState(null);
   const [month_value, setMonth] = useState(null);
   const [year_value, setYear] = useState(null);
@@ -115,6 +128,15 @@ const Activites = () => {
   const [end_hr_val, set_end_hr] = useState(null);
   const [end_min_val, set_end_min] = useState(null);
   const [end_ampm_val, set_end_ampm] = useState(null);
+  function submit_form() {
+    const entered_info = {
+      title,
+      description,
+      host,
+      giveaway,
+    };
+    console.log(entered_info);
+  }
 
   return (
     <SafeAreaView className="flex h-screen bg-black">
@@ -137,7 +159,7 @@ const Activites = () => {
           </View>
         </View>
       </View>
-      <ScrollView className="flex bg-white h-screen ">
+      <View className="flex bg-white h-screen ">
         {/* Events */}
         <View className="flex h-16 justify-center items-center ">
           <View className="flex flex-row w-11/12  justify-between items-center mt-3 mb-4">
@@ -152,120 +174,65 @@ const Activites = () => {
             </TouchableOpacity>
           </View>
         </View>
-        {/* class for today*/}
-        <View className=" h-52 items-center  ">
-          <View className="flex  w-11/12 h-full justify-start ">
-            <View className="flex h-1/12 flex-row items-center justify-between mb-3 ">
-              <Text className="text-1 font-medium">Today</Text>
-            </View>
-            {/* Today's events */}
-            <View className="flex  h-fit rounded-xl  justify-between items-center border-solid border border-[#989898]  ">
-              {/* elements*/}
-
-              <View className="flex basis-2/5 w-11/12 justify-center  mt-2">
-                <Text className="text-blue-700 text-[15px] font-medium ">
-                  SAT JUN 9 - 8:45 AM
-                </Text>
-                <Text className="text-black text-[15px] font-medium ">
-                  Pick up soccer game
-                </Text>
-                <Text className="text-neutral-700 text-[15px] font-normal ">
-                  <FontAwesome name="map-pin" size={20} color="#656565" />{" "}
-                  McNeese Recreational Center
-                </Text>
-                <Text className="text-neutral-700 text-[15px] font-normal ">
-                  10 Attendees
-                </Text>
+        <ScrollView className="">
+          {/* class for today*/}
+          <View className=" h-fit items-center  ">
+            <View className="flex  w-11/12 justify-start ">
+              <View className="flex h-1/12 flex-row items-center justify-between mb-3 ">
+                <Text className="text-1 font-medium">Today</Text>
               </View>
-              {/* This code below is for the View more button */}
-              <View className="flex h-1/4 w-full items-center justify-center  border-solid border-[#989898] border-t ">
-                <View className="w-11/12  flex flex-row justify-between items-center ">
-                  <Text className="text-black">View More</Text>
-                  <AntDesign name="right" size={15} color="black" />
+              {/* Today's events */}
+              <View className="flex  h-fit rounded-xl  justify-between items-center border-solid border border-[#989898] mb-5 ">
+                {/* elements*/}
+
+                <View className="flex h-24 w-11/12 justify-evenly  mt-2 mb-2">
+                  <Text className="text-black text-[15px] font-medium mb-2 ">
+                    Pick up soccer game
+                  </Text>
+                  <Text className="text-neutral-700 text-[15px] font-normal ">
+                    <AntDesign name="calendar" size={15} color="black" /> SAT
+                    JUN 9
+                  </Text>
+                  <Text className="text-neutral-700 text-[15px] font-normal ">
+                    <Ionicons name="time-outline" size={15} color="black" />{" "}
+                    8:45 AM - 8:45 AM
+                  </Text>
+
+                  <Text className="text-neutral-700 text-[15px] font-normal ">
+                    <SimpleLineIcons
+                      name="location-pin"
+                      size={15}
+                      color="black"
+                    />{" "}
+                    McNeese Recreational Center
+                  </Text>
+                  <Text className="text-neutral-700 text-[15px] font-normal ">
+                    10 Attendees
+                  </Text>
+                </View>
+                {/* This code below is for the View more button */}
+                <View className="flex h-7 w-full items-center justify-center  border-solid border-[#989898] border-t ">
+                  <View className="w-11/12  flex flex-row justify-between items-center ">
+                    <Text className="text-blue-700">View More</Text>
+                    <AntDesign name="right" size={15} color="black" />
+                  </View>
                 </View>
               </View>
             </View>
           </View>
-        </View>
-        <View className=" h-52 items-center  ">
-          <View className="flex  w-11/12 h-full justify-start ">
-            <View className="flex h-1/12 flex-row items-center justify-between mb-3 ">
-              <Text className="text-1 font-medium">Today</Text>
-            </View>
-            {/* Today's events */}
-            <View className="flex  h-fit rounded-xl  justify-between items-center border-solid border border-[#989898]  ">
-              {/* elements*/}
+        </ScrollView>
 
-              <View className="flex basis-2/5 w-11/12 justify-center  mt-2">
-                <Text className="text-blue-700 text-[15px] font-medium ">
-                  SAT JUN 9 - 8:45 AM
-                </Text>
-                <Text className="text-black text-[15px] font-medium ">
-                  Pick up soccer game
-                </Text>
-                <Text className="text-neutral-700 text-[15px] font-normal ">
-                  <FontAwesome name="map-pin" size={20} color="#656565" />{" "}
-                  McNeese Recreational Center
-                </Text>
-                <Text className="text-neutral-700 text-[15px] font-normal ">
-                  10 Attendees
-                </Text>
-              </View>
-              {/* This code below is for the View more button */}
-              <View className="flex h-1/4 w-full items-center justify-center  border-solid border-[#989898] border-t ">
-                <View className="w-11/12  flex flex-row justify-between items-center ">
-                  <Text className="text-black">View More</Text>
-                  <AntDesign name="right" size={15} color="black" />
-                </View>
-              </View>
-            </View>
-          </View>
-        </View>
-        <View className=" h-52 items-center  ">
-          <View className="flex  w-11/12 h-full justify-start ">
-            <View className="flex h-1/12 flex-row items-center justify-between mb-3 ">
-              <Text className="text-1 font-medium">Today</Text>
-            </View>
-            {/* Today's events */}
-            <View className="flex  h-fit rounded-xl  justify-between items-center border-solid border border-[#989898]  ">
-              {/* elements*/}
-
-              <View className="flex basis-2/5 w-11/12 justify-center  mt-2">
-                <Text className="text-blue-700 text-[15px] font-medium ">
-                  SAT JUN 9 - 8:45 AM
-                </Text>
-                <Text className="text-black text-[15px] font-medium ">
-                  Pick up soccer game
-                </Text>
-                <Text className="text-neutral-700 text-[15px] font-normal ">
-                  <FontAwesome name="map-pin" size={20} color="#656565" />{" "}
-                  McNeese Recreational Center
-                </Text>
-                <Text className="text-neutral-700 text-[15px] font-normal ">
-                  10 Attendees
-                </Text>
-              </View>
-              {/* This code below is for the View more button */}
-              <View className="flex h-1/4 w-full items-center justify-center  border-solid border-[#989898] border-t ">
-                <View className="w-11/12  flex flex-row justify-between items-center ">
-                  <Text className="text-black">View More</Text>
-                  <AntDesign name="right" size={15} color="black" />
-                </View>
-              </View>
-            </View>
-          </View>
-        </View>
         <Modal
           transparent={true}
           visible={modalVisible}
           className="h-screen w-screen"
         >
-          <View className=" h-full w-full  flex justify-center items-center">
-            <View className="w-3/4 h-3/4 bg-slate-50 border-solid border rounded-xl justify-center items-center ">
-              <View className="h-full w-11/12  items-center justify-center flex ">
-                <View className="w-full h-fit mb-3 items-end">
+          <KeyboardAvoidingView className=" h-screen w-full  flex justify-center items-center">
+            <View className="w-3/4 h-5/6 bg-white border-solid border rounded-xl justify-center items-center ">
+              <ScrollView className="h-full w-11/12    flex ">
+                <View className="w-full h-fit mb-3 items-end ">
                   <TouchableOpacity
-                    className=" w-1/4  flex items-center justify-center rounded-2xl"
+                    className=" w-fit flex items-center justify-center rounded-2xl"
                     onPress={() => {
                       setModalVisible(false);
                     }}
@@ -276,23 +243,35 @@ const Activites = () => {
                 <Text className="text-lg">Create Your Event</Text>
                 <View className="h-4/5 w-full justify-evenly">
                   <TextInput
-                    className="h-8 bg-white px-5 rounded-md border-2 border-[#B2ACAC] text-base font-normal  "
+                    className="h-8 bg-white px-5 rounded-md border border-[#B2ACAC] text-base font-normal  "
                     placeholder="Event Title"
+                    placeholderTextColor="#B2ACAC"
+                    onChangeText={(text) => set_title(text)}
                   />
 
                   <TextInput
-                    className="h-8 bg-white px-5 rounded-md border-2 border-[#B2ACAC] text-base font-medium"
+                    className="h-8 bg-white px-5 rounded-md border border-[#B2ACAC] text-base font-medium"
                     placeholder="Event Host "
+                    placeholderTextColor="#B2ACAC"
+                    onChangeText={(text) => set_host(text)}
                   />
                   <TextInput
-                    className="h-8 bg-white px-5 rounded-md border-2 border-[#B2ACAC] text-base font-medium"
+                    className="h-8 bg-white px-5 rounded-md border border-[#B2ACAC] text-base font-medium"
+                    placeholder="Event Location "
+                    placeholderTextColor="#B2ACAC"
+                    onChangeText={(text) => set_host(text)}
+                  />
+                  <TextInput
+                    className="h-8 bg-white px-5 rounded-md border border-[#B2ACAC] text-base font-medium "
                     placeholder="Event Giveaway "
+                    placeholderTextColor="#B2ACAC"
+                    onChangeText={(text) => set_giveaway(text)}
                   />
                   <View className="flex ">
                     <Text>Event Date</Text>
                     <View className="flex flex-row">
                       <Dropdown
-                        className="bg-white h-9 w-2/6 rounded-lg "
+                        className="bg-white h-8 w-16 rounded-lg mr-2 border border-[#B2ACAC] p-1 "
                         data={daysOfMonth}
                         labelField="label"
                         valueField="value"
@@ -303,7 +282,7 @@ const Activites = () => {
                         }}
                       ></Dropdown>
                       <Dropdown
-                        className="bg-white h-9 w-2/6 rounded-lg "
+                        className="bg-white h-8 w-20 rounded-lg mr-2 border border-[#B2ACAC] p-1 "
                         data={months}
                         labelField="label"
                         valueField="value"
@@ -314,7 +293,7 @@ const Activites = () => {
                         }}
                       ></Dropdown>
                       <Dropdown
-                        className="bg-white h-9 w-2/6 rounded-lg "
+                        className="bg-white h-8 w-16 rounded-lg mr-2 border border-[#B2ACAC] p-1 "
                         data={years}
                         labelField="label"
                         valueField="value"
@@ -326,79 +305,86 @@ const Activites = () => {
                       ></Dropdown>
                     </View>
                   </View>
-                  <View className="flex flex-row">
-                    <Dropdown
-                      className="bg-white h-9 w-2/6 rounded-lg "
-                      data={hours}
-                      labelField="label"
-                      valueField="value"
-                      placeholder="Hour"
-                      value={start_hr_val}
-                      onChange={(item) => {
-                        set_start_hr(item.value);
-                      }}
-                    ></Dropdown>
-                    <Dropdown
-                      className="bg-white h-9 w-2/6 rounded-lg "
-                      data={minutes}
-                      labelField="label"
-                      valueField="value"
-                      placeholder="Min"
-                      value={start_min_val}
-                      onChange={(item) => {
-                        set_start_min(item.value);
-                      }}
-                    ></Dropdown>
-                    <Dropdown
-                      className="bg-white h-9 w-2/6 rounded-lg "
-                      data={amPm}
-                      labelField="label"
-                      valueField="value"
-                      placeholder="AM/PM"
-                      value={start_ampm_val}
-                      onChange={(item) => {
-                        set_start_ampm(item.value);
-                      }}
-                    ></Dropdown>
+                  <View className="flex flex-col">
+                    <Text>Start Time</Text>
+                    <View className="flex flex-row justify-start">
+                      <Dropdown
+                        className="bg-white h-8 w-20 rounded-lg mr-2 border border-[#B2ACAC] p-1"
+                        data={hours}
+                        labelField="label"
+                        valueField="value"
+                        placeholder="Hour"
+                        value={start_hr_val}
+                        onChange={(item) => {
+                          set_start_hr(item.value);
+                        }}
+                      ></Dropdown>
+                      <Dropdown
+                        className="bg-white h-8 w-16 rounded-lg mr-2 border border-[#B2ACAC] p-1 "
+                        data={minutes}
+                        labelField="label"
+                        valueField="value"
+                        placeholder="Min"
+                        value={start_min_val}
+                        onChange={(item) => {
+                          set_start_min(item.value);
+                        }}
+                      ></Dropdown>
+                      <Dropdown
+                        className="bg-white h-8 w-24 rounded-lg mr-2 border border-[#B2ACAC] p-1 "
+                        data={amPm}
+                        labelField="label"
+                        valueField="value"
+                        placeholder="AM/PM"
+                        value={start_ampm_val}
+                        onChange={(item) => {
+                          set_start_ampm(item.value);
+                        }}
+                      ></Dropdown>
+                    </View>
                   </View>
-                  <View className="flex flex-row">
-                    <Dropdown
-                      className="bg-white h-9 w-2/6 rounded-lg"
-                      data={hours}
-                      labelField="label"
-                      valueField="value"
-                      placeholder="Hour"
-                      value={end_hr_val}
-                      onChange={(item) => {
-                        set_end_hr(item.value);
-                      }}
-                    ></Dropdown>
-                    <Dropdown
-                      className="bg-white h-9 w-2/6 rounded-lg"
-                      data={minutes}
-                      labelField="label"
-                      valueField="value"
-                      placeholder="Min"
-                      value={end_min_val}
-                      onChange={(item) => {
-                        set_end_min(item.value);
-                      }}
-                    ></Dropdown>
-                    <Dropdown
-                      className="bg-white h-9 w-2/6 rounded-lg"
-                      data={amPm}
-                      labelField="label"
-                      valueField="value"
-                      placeholder="AM/PM"
-                      value={end_ampm_val}
-                      onChange={(item) => {
-                        set_end_ampm(item.value);
-                      }}
-                    ></Dropdown>
+                  <View className="flex flex-col">
+                    <Text>End Time</Text>
+                    <View className="flex flex-row">
+                      <Dropdown
+                        className="bg-white h-8 w-20 rounded-lg mr-2 border border-[#B2ACAC] p-1"
+                        data={hours}
+                        labelField="label"
+                        valueField="value"
+                        placeholder="Hour"
+                        value={end_hr_val}
+                        onChange={(item) => {
+                          set_end_hr(item.value);
+                        }}
+                      ></Dropdown>
+                      <Dropdown
+                        className="bg-white h-8 w-16 rounded-lg mr-2 border border-[#B2ACAC] p-1"
+                        data={minutes}
+                        labelField="label"
+                        valueField="value"
+                        placeholder="Min"
+                        value={end_min_val}
+                        onChange={(item) => {
+                          set_end_min(item.value);
+                        }}
+                      ></Dropdown>
+                      <Dropdown
+                        className="bg-white h-8 w-24 rounded-lg mr-2 border border-[#B2ACAC] p-1"
+                        data={amPm}
+                        labelField="label"
+                        valueField="value"
+                        placeholder="AM/PM"
+                        value={end_ampm_val}
+                        onChange={(item) => {
+                          set_end_ampm(item.value);
+                        }}
+                      ></Dropdown>
+                    </View>
                   </View>
                   <TextInput
-                    className="h-32 bg-white px-5 rounded-md border-2 border-[#B2ACAC] text-base font-medium"
+                    className="h-32 bg-white px-5 rounded-md border border-[#B2ACAC] text-left text-base font-medium"
                     placeholder="Event Description"
+                    placeholderTextColor="#B2ACAC"
                   />
                 </View>
                 <View className="w-full items-center">
@@ -406,17 +392,17 @@ const Activites = () => {
                     className=" bg-[#075eec] w-2/5 h-7 flex items-center justify-center rounded-2xl"
                     onPress={() => {
                       setModalVisible(false);
+                      submit_form();
                     }}
                   >
                     <Text className="text-white">Add Event</Text>
                   </TouchableOpacity>
                 </View>
-                
-              </View>
+              </ScrollView>
             </View>
-          </View>
+          </KeyboardAvoidingView>
         </Modal>
-      </ScrollView>
+      </View>
     </SafeAreaView>
   );
 };

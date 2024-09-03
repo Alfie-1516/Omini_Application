@@ -20,7 +20,7 @@ export default function MyTabs() {
       <Tab.Screen name="Calender" component={CalenderScreen} options={{headerShown:false}} />
       <Tab.Screen name="Chat" component={ChatScreen}  options={{headerShown:false}}/>
       <Tab.Screen name="Activities" component={ActivitiesScreen} options={{headerShown:false}} />
-      <Tab.Screen name="Wellness" component={WellnessScreen} />
+      {/* <Tab.Screen name="Wellness" component={WellnessScreen} /> */}
       <Tab.Screen name="profile" component={Profile} options={{headerShown:false}}/>
     </Tab.Navigator>
     
