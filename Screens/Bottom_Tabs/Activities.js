@@ -139,7 +139,7 @@ const Activites = () => {
   }
 
   return (
-    <SafeAreaView className="flex h-screen bg-black">
+    <SafeAreaView className="flex h-screen bg-white">
       {/* This is the top nav bar  */}
       <View className=" h-12 flex  w-screen  items-center border-solid border-b bg-white border-gray-400 pb-5">
         <View className=" flex flex-row w-11/12 justify-between">

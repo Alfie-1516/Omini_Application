@@ -3,16 +3,18 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { StyleSheet, Text, Image, View, ScrollView } from "react-native";
+import { StyleSheet, Text, Image, View, ScrollView,TouchableOpacity } from "react-native";
 
 const Chat = () => {
   return (
     <SafeAreaView className="flex flex-col  justify-start  h-screen  items-center bg-white">
       {/* This is the top nav bar  */}
-      <View className=" basis-1/12 flex  w-screen  items-center border-solid border-b bg-white border-[#989898] pb-5">
+      <View className=" h-12 flex  w-screen  items-center border-solid border-b bg-white border-gray-400 pb-5">
         <View className=" flex flex-row w-11/12 justify-between">
           <View className="basis-2/6 items-start justify-center ">
-            <AntDesign name="book" size={24} color="black" />
+            <TouchableOpacity onPress={() => navigation.navigate("Academics")}>
+              <AntDesign name="book" size={24} color="black" />
+            </TouchableOpacity>
           </View>
           <View className="basis-2/6 flex justify-center items-center pb-3">
             <Image
@@ -23,7 +25,9 @@ const Chat = () => {
             />
           </View>
           <View className="basis-2/6 justify-center items-end">
-            <FontAwesome name="user-circle" size={24} color="black" />
+            <TouchableOpacity onPress={() => navigation.navigate("profile")}>
+              <FontAwesome name="user-circle" size={24} color="black" />
+            </TouchableOpacity>
           </View>
         </View>
       </View>
@@ -35,7 +39,7 @@ const Chat = () => {
       </View>
       <View className="flex justify-center items-center">
         <View className="flex flex-row bg-slate-300 rounded-lg items-center justify-between py-1 px-4 w-11/12 self-center mb-6">
-        <Text className="text-slate-500 text-base font-medium font-['Inter'] flex-1">
+        <Text className="text-slate-500 text-base font-medium  flex-1">
               Search and Explore
           </Text>
         <FontAwesome name="map-pin" size={20} color="blue"/>
@@ -53,13 +57,13 @@ const Chat = () => {
         </View>
         <View className=" flex bg-white justify-between w-11/12 self-center border-b-2 border-slate-200 ">
           <View className="justify-between flex flex-row">
-            <Text className="text-neutral-800 text-base font-bold font-['Inter']">CSCI 321 - 7XA</Text>
-            <Text className="text-zinc-800 font-bold font-['Inter']">Jun 5</Text>
+            <Text className="text-neutral-800 text-base font-bold ">CSCI 321 - 7XA</Text>
+            <Text className="text-zinc-800 font-bold ">Jun 5</Text>
           </View>
           <View className="justify-between flex flex-row mb-2">
-            <Text className="w-[245px] h-[21px] text-stone-600 text-base font-medium font-['Inter']">Courtney Moree: I’m interested</Text>
+            <Text className="w-[245px] h-[21px] text-stone-600 text-base font-medium ">Courtney Moree: I’m interested</Text>
             <View className=  "w-[15px] h-[15px] bg-blue-700 rounded-full mt-1">
-              <Text className="text-center text-white text-[10px] font-medium font-['Inter']">2</Text>
+              <Text className="text-center text-white text-[10px] font-medium ">2</Text>
           </View>
           </View>
         </View>
@@ -78,13 +82,13 @@ const Chat = () => {
         </View>
         <View className=" flex bg-white justify-between w-11/12 self-center border-b-2 border-slate-200 ">
           <View className="justify-between flex flex-row">
-            <Text className="text-neutral-800 text-base font-bold font-['Inter']">CSCI 321 - 7XA</Text>
-            <Text className="text-zinc-800 font-bold font-['Inter']">Jun 5</Text>
+            <Text className="text-neutral-800 text-base font-bold ">CSCI 321 - 7XA</Text>
+            <Text className="text-zinc-800 font-bold ">Jun 5</Text>
           </View>
           <View className="justify-between flex flex-row mb-2">
-            <Text className="w-[245px] h-[21px] text-stone-600 text-base font-medium font-['Inter']">Courtney Moree: I’m interested</Text>
+            <Text className="w-[245px] h-[21px] text-stone-600 text-base font-medium ">Courtney Moree: I’m interested</Text>
             <View className=  "w-[15px] h-[15px] bg-blue-700 rounded-full mt-1">
-              <Text className="text-center text-white text-[10px] font-medium font-['Inter']">2</Text>
+              <Text className="text-center text-white text-[10px] font-medium ">2</Text>
           </View>
           </View>
         </View>
@@ -103,13 +107,13 @@ const Chat = () => {
         </View>
         <View className=" flex bg-white justify-between w-11/12 self-center border-b-2 border-slate-200 ">
           <View className="justify-between flex flex-row">
-            <Text className="text-neutral-800 text-base font-bold font-['Inter']">CSCI 321 - 7XA</Text>
-            <Text className="text-zinc-800 font-bold font-['Inter']">Jun 5</Text>
+            <Text className="text-neutral-800 text-base font-bold ">CSCI 321 - 7XA</Text>
+            <Text className="text-zinc-800 font-bold ">Jun 5</Text>
           </View>
           <View className="justify-between flex flex-row mb-2">
-            <Text className="w-[245px] h-[21px] text-stone-600 text-base font-medium font-['Inter']">Courtney Moree: I’m interested</Text>
+            <Text className="w-[245px] h-[21px] text-stone-600 text-base font-medium ">Courtney Moree: I’m interested</Text>
             <View className=  "w-[15px] h-[15px] bg-blue-700 rounded-full mt-1">
-              <Text className="text-center text-white text-[10px] font-medium font-['Inter']">2</Text>
+              <Text className="text-center text-white text-[10px] font-medium ">2</Text>
           </View>
           </View>
         </View>
@@ -128,13 +132,13 @@ const Chat = () => {
         </View>
         <View className=" flex bg-white justify-between w-11/12 self-center border-b-2 border-slate-200 ">
           <View className="justify-between flex flex-row">
-            <Text className="text-neutral-800 text-base font-bold font-['Inter']">CSCI 321 - 7XA</Text>
-            <Text className="text-zinc-800 font-bold font-['Inter']">Jun 5</Text>
+            <Text className="text-neutral-800 text-base font-bold ">CSCI 321 - 7XA</Text>
+            <Text className="text-zinc-800 font-bold ">Jun 5</Text>
           </View>
           <View className="justify-between flex flex-row mb-2">
-            <Text className="w-[245px] h-[21px] text-stone-600 text-base font-medium font-['Inter']">Courtney Moree: I’m interested</Text>
+            <Text className="w-[245px] h-[21px] text-stone-600 text-base font-medium ">Courtney Moree: I’m interested</Text>
             <View className=  "w-[15px] h-[15px] bg-blue-700 rounded-full mt-1">
-              <Text className="text-center text-white text-[10px] font-medium font-['Inter']">2</Text>
+              <Text className="text-center text-white text-[10px] font-medium ">2</Text>
           </View>
           </View>
         </View>

@@ -12,7 +12,7 @@ import { SimpleLineIcons } from "@expo/vector-icons";
 
 const App = ({ navigation }) => {
   return (
-    <SafeAreaView className="bg-black">
+    <SafeAreaView className="bg-white">
       <View className="flex flex-col h-screen">
         {/* This is the top nav bar */}
         <View className=" h-12 flex  w-screen  items-center border-solid border-b bg-white border-gray-400 pb-5">
