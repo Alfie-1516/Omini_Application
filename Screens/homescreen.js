@@ -17,7 +17,7 @@ const App = ({ navigation }) => {
         {/* logo view below */}
         <View className="flex h-2/5 justify-center items-center">
         <Image
-            source={require("../assets/McneeseLogo.png")}
+            source={require("../assets/complete.png")}
             resizeMode="contain"
             className="w-screen h-60"
           ></Image>

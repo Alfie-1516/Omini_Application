@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
 import { Calendar } from "react-native-calendars";
 import AntDesign from "@expo/vector-icons/AntDesign";
@@ -18,7 +25,11 @@ const App = ({ navigation }) => {
         <View className=" h-12 flex  w-screen  items-center border-solid border-b bg-white border-gray-400 pb-5">
           <View className=" flex flex-row w-11/12 justify-between">
             <View className="basis-2/6 items-start justify-center ">
-              <AntDesign name="book" size={24} color="black" />
+              <TouchableOpacity
+                onPress={() => navigation.navigate("Academics")}
+              >
+                <AntDesign name="book" size={24} color="black" />
+              </TouchableOpacity>
             </View>
             <View className="basis-2/6 flex justify-center items-center pb-3">
               <Image
@@ -137,22 +148,22 @@ const App = ({ navigation }) => {
                   </View>
                 </View>
               </ScrollView>
-              
             </View>
-            
           </View>
           <View className="basis-1/2 bg-white justify-center items-center">
-          <TouchableOpacity
+            <TouchableOpacity
               onPress={() => {
                 //Handel on press action
                 navigation.navigate("chat");
               }}
             >
-            <View className = "w-12 h-12 bg-blue-700 rounded-full justify-center items-center">
-                <Text className="text-center text-white text-4xl font-medium">+</Text>
-            </View>
+              <View className="w-12 h-12 bg-blue-700 rounded-full justify-center items-center">
+                <Text className="text-center text-white text-4xl font-medium">
+                  +
+                </Text>
+              </View>
             </TouchableOpacity>
-        </View>
+          </View>
         </ScrollView>
       </View>
     </SafeAreaView>

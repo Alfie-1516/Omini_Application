@@ -19,7 +19,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { SimpleLineIcons } from "@expo/vector-icons";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-const Activites = () => {
+const Activites = ({navigation}) => {
   const [events, set_events] = useState([]);
   const add_new_event = () => {
     const newView = "";
@@ -144,7 +144,9 @@ const Activites = () => {
       <View className=" h-12 flex  w-screen  items-center border-solid border-b bg-white border-gray-400 pb-5">
         <View className=" flex flex-row w-11/12 justify-between">
           <View className="basis-2/6 items-start justify-center ">
-            <AntDesign name="book" size={24} color="black" />
+          <TouchableOpacity onPress={() => navigation.navigate("Academics")}>
+              <AntDesign name="book" size={24} color="black" />
+            </TouchableOpacity>
           </View>
           <View className="basis-2/6 flex justify-center items-center pb-3">
             <Image
