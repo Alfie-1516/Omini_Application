@@ -9,6 +9,7 @@ import StudyRoomScreen from "./Academics/Study_room";
 import QuickExamScreen from "./Academics/Quick_exam";
 import NeedAHandScreen from "./Academics/Need_a_hand";
 import HelpAFriendScreen from "./Academics/Help_a_friend";
+import ext_Activites from "./Extra_Tabs/Ext_Activites";
 import { NavigationContainer } from "@react-navigation/native";
 import Profile from "./Bottom_Tabs/Profile";
 
@@ -65,6 +66,11 @@ export default function MyTabs() {
       <Tab.Screen
         name="Help_a_Friend"
         component={HelpAFriendScreen}
+        options={{ headerShown: false, tabBarButton: () => null }}
+      />
+      <Tab.Screen
+        name="ext_activites"
+        component={ext_Activites}
         options={{ headerShown: false, tabBarButton: () => null }}
       />
     </Tab.Navigator>

@@ -19,12 +19,30 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { SimpleLineIcons } from "@expo/vector-icons";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-const Activites = ({navigation}) => {
-  const [events, set_events] = useState([]);
-  const add_new_event = () => {
-    const newView = "";
-    set_events([...events, newView]);
-  };
+const Activites = ({ navigation }) => {
+  
+
+const [events, setEvents] = useState([
+  {
+    title: "Music Festival",
+    description: "A fun-filled music event with live performances.",
+    location: "Central Park, NY",
+    host: "John Doe",
+    giveaway: "Free T-shirts",
+    fee:"Free",
+    month_value: "Oct",   // August
+    day: "Sat",
+    day_value: "15",
+    year_value: "2024",
+    start_hr_val: "5",   // 5 PM
+    start_min_val: "30",
+    start_ampm_val: "PM",
+    end_hr_val: "8",     // 8 PM
+    end_min_val: "00",
+    end_ampm_val: "PM"
+  }
+]);
+
   const [modalVisible, setModalVisible] = useState(false);
   const months = [
     { label: "Jan", value: "1" },
@@ -117,8 +135,10 @@ const Activites = ({navigation}) => {
   ];
   const [title, set_title] = useState(null);
   const [description, set_description] = useState(null);
+  const [location, set_location] = useState(null);
   const [host, set_host] = useState(null);
   const [giveaway, set_giveaway] = useState(null);
+  const[fee, set_fee] = useState(null)
   const [day_value, setDay] = useState(null);
   const [month_value, setMonth] = useState(null);
   const [year_value, setYear] = useState(null);
@@ -128,14 +148,88 @@ const Activites = ({navigation}) => {
   const [end_hr_val, set_end_hr] = useState(null);
   const [end_min_val, set_end_min] = useState(null);
   const [end_ampm_val, set_end_ampm] = useState(null);
+  function find_day(day, month, year) {
+    named_day = "";
+
+    if (month == 1) {
+      month = 13;
+      year--;
+    }
+    if (month == 2) {
+      month = 14;
+      year--;
+    }
+    let q = day;
+    let m = month;
+    let k = year % 100;
+    let j = parseInt(year / 100, 10);
+    let h =
+      q +
+      parseInt((13 * (m + 1)) / 5, 10) +
+      k +
+      parseInt(k / 4, 10) +
+      parseInt(j / 4, 10) +
+      5 * j;
+    h = h % 7;
+    switch (h) {
+      case 0:
+        named_day = "Sat";
+        break;
+
+      case 1:
+        named_day = "Sun";
+        break;
+
+      case 2:
+        named_day = "Mon";
+        break;
+
+      case 3:
+        named_day = "Tue";
+        break;
+
+      case 4:
+        named_day = "Wed";
+        break;
+
+      case 5:
+        named_day = "Thur";
+        break;
+
+      case 6:
+        named_day = "Fri";
+        break;
+    }
+    console.log(named_day);
+    return named_day;
+  }
   function submit_form() {
-    const entered_info = {
+    const month = months.find((month) => month.label === month_value);
+    day = find_day(
+      parseInt(day_value),
+      parseInt(month.value),
+      parseInt(year_value)
+    );
+    const newEvent = {
       title,
       description,
+      location,
       host,
+      fee,
       giveaway,
+      month_value,
+      day,
+      day_value,
+      year_value,
+      start_hr_val,
+      start_min_val,
+      start_ampm_val,
+      end_hr_val,
+      end_min_val,
+      end_ampm_val,
     };
-    console.log(entered_info);
+
+    setEvents((prevEvents) => [...prevEvents, newEvent]);
   }
 
   return (
@@ -144,7 +238,7 @@ const Activites = ({navigation}) => {
       <View className=" h-12 flex  w-screen  items-center border-solid border-b bg-white border-gray-400 pb-5">
         <View className=" flex flex-row w-11/12 justify-between">
           <View className="basis-2/6 items-start justify-center ">
-          <TouchableOpacity onPress={() => navigation.navigate("Academics")}>
+            <TouchableOpacity onPress={() => navigation.navigate("Academics")}>
               <AntDesign name="book" size={24} color="black" />
             </TouchableOpacity>
           </View>
@@ -184,42 +278,77 @@ const Activites = ({navigation}) => {
                 <Text className="text-1 font-medium">Today</Text>
               </View>
               {/* Today's events */}
-              <View className="flex  h-fit rounded-xl  justify-between items-center border-solid border border-[#989898] mb-5 ">
-                {/* elements*/}
+              {events.map((temp_event, index) => (
+                <View
+                  className="flex  h-fit rounded-xl  justify-between items-center border-solid border border-[#989898] mb-5 "
+                  key={index}
+                >
+                  {/* elements*/}
 
-                <View className="flex h-24 w-11/12 justify-evenly  mt-2 mb-2">
-                  <Text className="text-black text-[15px] font-medium mb-2 ">
-                    Pick up soccer game
-                  </Text>
-                  <Text className="text-neutral-700 text-[15px] font-normal ">
-                    <AntDesign name="calendar" size={15} color="black" /> SAT
-                    JUN 9
-                  </Text>
-                  <Text className="text-neutral-700 text-[15px] font-normal ">
-                    <Ionicons name="time-outline" size={15} color="black" />{" "}
-                    8:45 AM - 8:45 AM
-                  </Text>
+                  <View className="flex h-24 w-11/12 justify-evenly  mt-2 mb-2">
+                    <Text className="text-black text-[15px] font-medium mb-2 ">
+                      {temp_event.title}
+                    </Text>
 
-                  <Text className="text-neutral-700 text-[15px] font-normal ">
-                    <SimpleLineIcons
-                      name="location-pin"
-                      size={15}
-                      color="black"
-                    />{" "}
-                    McNeese Recreational Center
-                  </Text>
-                  <Text className="text-neutral-700 text-[15px] font-normal ">
-                    10 Attendees
-                  </Text>
-                </View>
-                {/* This code below is for the View more button */}
-                <View className="flex h-7 w-full items-center justify-center  border-solid border-[#989898] border-t ">
-                  <View className="w-11/12  flex flex-row justify-between items-center ">
-                    <Text className="text-blue-700">View More</Text>
-                    <AntDesign name="right" size={15} color="black" />
+                    <Text className="text-neutral-700 text-[15px] font-normal ">
+                      <AntDesign name="calendar" size={15} color="black" />{"  "}
+                      {temp_event.day} {temp_event.month_value}{" "}
+                      {temp_event.day_value} {temp_event.year_value}
+                    </Text>
+                    <Text className="text-neutral-700 text-[15px] font-normal ">
+                      <Ionicons name="time-outline" size={15} color="black" />
+                      {"  "}
+                      {temp_event.start_hr_val}:{temp_event.start_min_val}{" "}
+                      {temp_event.start_ampm_val} - {temp_event.end_hr_val}:
+                      {temp_event.end_min_val} {temp_event.end_ampm_val}
+                    </Text>
+
+                    <Text className="text-neutral-700 text-[15px] font-normal ">
+                      <SimpleLineIcons
+                        name="location-pin"
+                        size={15}
+                        color="black"
+                      />
+                      {"  "}
+                      {temp_event.location}
+                    </Text>
+                    <Text className="text-neutral-700 text-[15px] font-normal ">
+                      10 Attendees
+                    </Text>
+                  </View>
+                  {/* This code below is for the View more button */}
+                  <View className="flex h-7 w-full items-center justify-center  border-solid border-[#989898] border-t ">
+                    <TouchableOpacity
+                      onPress={() =>
+                        navigation.navigate("ext_activites", {
+                          cur_title: temp_event.title,
+                          cur_host: temp_event.host,
+                          cur_location: temp_event.location,
+                          cur_day:temp_event.day,
+                          cur_date:temp_event.day_value,
+                          cur_month:temp_event.month_value,
+                          cur_year:temp_event.year_value,
+                          cur_start_hr: temp_event.start_hr_val,
+                          cur_start_min: temp_event.start_min_val,
+                          cur_start_amPm: temp_event.start_ampm_val,
+                          cur_end_hr: temp_event.end_hr_val,
+                          cur_end_min: temp_event.end_min_val,
+                          cur_end_ampm: temp_event.end_ampm_val,
+                          cur_description: temp_event.description,
+                          cur_giveaway:temp_event.giveaway,
+                          cur_fee:temp_event.fee
+
+                        })
+                      }
+                    >
+                      <View className="w-11/12  flex flex-row justify-between items-center ">
+                        <Text className="text-blue-700">View More</Text>
+                        <AntDesign name="right" size={15} color="black" />
+                      </View>
+                    </TouchableOpacity>
                   </View>
                 </View>
-              </View>
+              ))}
             </View>
           </View>
         </ScrollView>
@@ -261,13 +390,19 @@ const Activites = ({navigation}) => {
                     className="h-8 bg-white px-5 rounded-md border border-[#B2ACAC] text-base font-medium"
                     placeholder="Event Location "
                     placeholderTextColor="#B2ACAC"
-                    onChangeText={(text) => set_host(text)}
+                    onChangeText={(text) => set_location(text)}
                   />
                   <TextInput
                     className="h-8 bg-white px-5 rounded-md border border-[#B2ACAC] text-base font-medium "
                     placeholder="Event Giveaway "
                     placeholderTextColor="#B2ACAC"
                     onChangeText={(text) => set_giveaway(text)}
+                  />
+                  <TextInput
+                    className="h-8 bg-white px-5 rounded-md border border-[#B2ACAC] text-base font-medium "
+                    placeholder="Event Fee "
+                    placeholderTextColor="#B2ACAC"
+                    onChangeText={(text) => set_fee(text)}
                   />
                   <View className="flex ">
                     <Text>Event Date</Text>
@@ -291,7 +426,7 @@ const Activites = ({navigation}) => {
                         placeholder="Month"
                         value={month_value}
                         onChange={(item) => {
-                          setMonth(item.value);
+                          setMonth(item.label);
                         }}
                       ></Dropdown>
                       <Dropdown
@@ -387,6 +522,7 @@ const Activites = ({navigation}) => {
                     className="h-32 bg-white px-5 rounded-md border border-[#B2ACAC] text-left text-base font-medium"
                     placeholder="Event Description"
                     placeholderTextColor="#B2ACAC"
+                    onChangeText={(text) => set_description(text)}
                   />
                 </View>
                 <View className="w-full items-center">
