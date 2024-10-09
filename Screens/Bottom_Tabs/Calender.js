@@ -24,6 +24,7 @@ import { SimpleLineIcons } from "@expo/vector-icons";
 
 const App = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [selected_day, set_selected_day] = useState(null);
   const months = [
     { label: "Jan", value: "1" },
     { label: "Feb", value: "2" },
@@ -39,15 +40,15 @@ const App = ({ navigation }) => {
     { label: "Dec", value: "12" },
   ];
   const daysOfMonth = [
-    { label: "1", value: "1" },
-    { label: "2", value: "2" },
-    { label: "3", value: "3" },
-    { label: "4", value: "4" },
-    { label: "5", value: "5" },
-    { label: "6", value: "6" },
-    { label: "7", value: "7" },
-    { label: "8", value: "8" },
-    { label: "9", value: "9" },
+    { label: "1", value: "01" },
+    { label: "2", value: "02" },
+    { label: "3", value: "03" },
+    { label: "4", value: "04" },
+    { label: "5", value: "05" },
+    { label: "6", value: "06" },
+    { label: "7", value: "07" },
+    { label: "8", value: "08" },
+    { label: "9", value: "09" },
     { label: "10", value: "10" },
     { label: "11", value: "11" },
     { label: "12", value: "12" },
@@ -124,8 +125,10 @@ const App = ({ navigation }) => {
       start_hr_val: "5", // 5 PM
       start_min_val: "30",
       start_ampm_val: "PM",
+      checked:false
     },
   ]);
+  const [tasked_day, set_tasked_day] = useState([]);
   const [title, set_title] = useState(null);
   const [location, set_location] = useState(null);
   const [day_value, setDay] = useState(null);
@@ -134,6 +137,8 @@ const App = ({ navigation }) => {
   const [start_hr_val, set_start_hr] = useState(null);
   const [start_min_val, set_start_min] = useState(null);
   const [start_ampm_val, set_start_ampm] = useState(null);
+  const [checked, set_checked] = useState(false);
+  const markedDates = {};
   function find_day(day, month, year) {
     named_day = "";
 
@@ -189,6 +194,16 @@ const App = ({ navigation }) => {
     console.log(named_day);
     return named_day;
   }
+  tasked_day.forEach((date) => {
+    markedDates[date] = { marked: true, dotColor: "#075eec" };
+  });
+  const toggleChecked = (index) => {
+    const updatedEvents = events.map((event, i) =>
+      i === index ? { ...event, checked: !event.checked } : event
+    );
+    setEvents(updatedEvents); // Update the state with the modified event list
+  };
+  
   function submit_form() {
     const month = months.find((month) => month.label === month_value);
     day = find_day(
@@ -196,6 +211,8 @@ const App = ({ navigation }) => {
       parseInt(month.value),
       parseInt(year_value)
     );
+    const new_tasked_day = year_value + "-" + month.value + "-" + day_value;
+
     const newEvent = {
       title,
       location,
@@ -206,10 +223,13 @@ const App = ({ navigation }) => {
       start_hr_val,
       start_min_val,
       start_ampm_val,
+      checked,
     };
-    console.log(newEvent);
 
     setEvents((prevEvents) => [...prevEvents, newEvent]);
+    set_tasked_day((prevTaskedDay) => [...prevTaskedDay, new_tasked_day]);
+   
+    
   }
 
   return (
@@ -252,8 +272,11 @@ const App = ({ navigation }) => {
               textDisabledColor: "#d3d3d3",
               arrowColor: "#075eec",
             }}
-            markedDates={{
-              "2024-06-17": { marked: true, dotColor: "#075eec" },
+            markedDates={markedDates}
+            onDayPress={(day) => {
+              set_selected_day(day.day);
+              console.log(day.day);
+              console.log(markedDates);
             }}
           />
           <View className="basis-1/2 bg-white justify-center items-center h-96">
@@ -266,56 +289,74 @@ const App = ({ navigation }) => {
               </View>
               {/* Daily tasks/ activites */}
               <ScrollView className="">
-                {events.map((temp_event, index) => (
-                  <View
-                    className="flex  h-fit w-11/12 border-solid border-b border-gray-500"
-                    key={index}
-                  >
-                    <View className="h-24 flex flex-row items-center">
-                      <View className="h-16">
-                        <Feather name="circle" size={20} color="black" />
-                      </View>
+                {events.map((temp_event, index) => {
+                  if (selected_day == parseFloat(temp_event.day_value)) {
+                    // Check if the day is Monday (you can replace "Monday" with any specific day or condition)
+                    return (
+                      <View
+                        className="flex  h-fit w-11/12 border-solid border-b border-gray-500"
+                        key={index}
+                      >
+                        <View className="h-24 flex flex-row items-center">
+                          <View className="h-16">
+                            <TouchableOpacity
+                              onPress={() => {
+                                toggleChecked(index); // Toggle checked state
+                                console.log(temp_event.checked)
+                              }}
+                            >
+                              {temp_event.checked ? (
+                                <Feather
+                                  name="circle"
+                                  size={20}
+                                  color="black"
+                                />
+                              ) : (
+                                <Feather
+                                  name="check-circle"
+                                  size={20}
+                                  color="black"
+                                />
+                              )}
+                            </TouchableOpacity>
+                          </View>
 
-                      <View className="ml-5 h-16 w-5/6 justify-between">
-                        <Text className="text-[#075eec] ">
-                          {temp_event.title}
-                        </Text>
-                        <View className="justify-start items-center flex flex-row">
-                          <Ionicons
-                            name="time-outline"
-                            size={15}
-                            color="black"
-                          />
-                          <Text className="ml-2">{temp_event.start_hr_val}:{temp_event.start_min_val} {temp_event.start_ampm_val}</Text>
-                        </View>
-                        <View className="justify-start items-center flex flex-row">
-                          <SimpleLineIcons
-                            name="location-pin"
-                            size={15}
-                            color="black"
-                          />
-                          <Text className="ml-2">{temp_event.location}</Text>
+                          <View className="ml-5 h-16 w-5/6 justify-between">
+                            <Text className="text-[#075eec] ">
+                              {temp_event.title}
+                            </Text>
+                            <View className="justify-start items-center flex flex-row">
+                              <Ionicons
+                                name="time-outline"
+                                size={15}
+                                color="black"
+                              />
+                              <Text className="ml-2">
+                                {temp_event.day} {temp_event.start_hr_val}:
+                                {temp_event.start_min_val}{" "}
+                                {temp_event.start_ampm_val}
+                              </Text>
+                            </View>
+                            <View className="justify-start items-center flex flex-row">
+                              <SimpleLineIcons
+                                name="location-pin"
+                                size={15}
+                                color="black"
+                              />
+                              <Text className="ml-2">
+                                {temp_event.location}
+                              </Text>
+                            </View>
+                          </View>
                         </View>
                       </View>
-                    </View>
-                  </View>
-                ))}
+                    );
+                  } else {
+                    return null; // Don't render anything if the condition doesn't match
+                  }
+                })}
               </ScrollView>
             </View>
-          </View>
-          <View className="basis-1/2 bg-white justify-center items-center">
-            <TouchableOpacity
-              onPress={() => {
-                //Handel on press action
-                navigation.navigate("chat");
-              }}
-            >
-              <View className="w-12 h-12 bg-blue-700 rounded-full justify-center items-center">
-                <Text className="text-center text-white text-4xl font-medium">
-                  +
-                </Text>
-              </View>
-            </TouchableOpacity>
           </View>
         </ScrollView>
         <Modal
